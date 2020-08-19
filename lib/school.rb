@@ -26,4 +26,15 @@ class School
     capitalized_names
   end
 
+  def convert_end_time_to_clock_time
+    military_time = self.end_time
+    hour = military_time.split(":")[0].to_i
+    if hour > 12
+      clock_time = hour - 12
+      "#{clock_time}:00"
+    else
+      "#{hour}:00"
+    end
+  end
+
 end

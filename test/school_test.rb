@@ -64,4 +64,14 @@ class SchoolTest < Minitest::Test
     school.add_student_name("megan")
     assert_equal ["Aurora", "Tim", "Megan"], school.standard_student_names
   end
+
+  def test_can_convert_end_time_to_clock_time
+    school = School.new("9:00", 7)
+    assert_equal "4:00", school.convert_end_time_to_clock_time
+  end
+
+  def test_will_still_return_clock_time_before_noon
+    school = School.new("9:00", 2)
+    assert_equal "11:00", school.convert_end_time_to_clock_time
+  end
 end
