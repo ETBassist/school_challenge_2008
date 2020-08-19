@@ -12,8 +12,8 @@ class School
   end
 
   def end_time
-    first_digit = @start_time[0].to_i + @hours_in_school_day
-    "#{first_digit}:00"
+    stop_time = @start_time.split(":")[0].to_i + @hours_in_school_day
+    "#{stop_time}:00"
   end
 
   def is_full_time?
